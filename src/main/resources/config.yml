@@ -1,0 +1,10 @@
+motd: <MOTD>
+totd: <TOTD>
+sotd: <SOTD>
+
+manual:
+  description: <DESCRIPTION>
+  message: <MESSAGE>
+statute:
+  description: <DESCRIPTION>
+  message: <MESSAGE>
