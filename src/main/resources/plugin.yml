@@ -1,0 +1,34 @@
+main: cf.dirt.Plugin
+name: Instance
+version: 1.0.0
+api-version: 1.14
+description: An instance plugin with basic commands and listeners
+author: kubachrabanski
+
+commands:
+  memory:
+    description: "Shows memory statistics"
+    usage: "Usage: /<command>"
+    permission: instance.command.memory
+  processor:
+    description: "Shows processor statistics"
+    usage: "Usage: /<command>"
+    permission: instance.command.processor
+  manual:
+    description: "Shows manual"
+    usage: "Usage: /<command> [page_index]"
+    permission: instance.command.manual
+  statute:
+    description: "Shows statute"
+    usage: "Usage: /<command> [page_index]"
+    permission: instance.command.statute
+
+permissions:
+  instance.command.memory:
+    default: op
+  instance.command.processor:
+    default: op
+  instance.command.manual:
+    default: true
+  instance.command.statute:
+    default: true
