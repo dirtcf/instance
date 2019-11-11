@@ -1,4 +1,4 @@
-package cf.dirt.commands.stats;
+package cf.dirt.instance.commands.statistics;
 
 import com.sun.management.OperatingSystemMXBean;
 import org.bukkit.command.Command;

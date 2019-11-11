@@ -1,4 +1,4 @@
-package cf.dirt.listeners;
+package cf.dirt.instance.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

@@ -1,10 +1,10 @@
-package cf.dirt;
+package cf.dirt.instance;
 
-import cf.dirt.commands.MessageCommand;
-import cf.dirt.commands.stats.MemoryCommand;
-import cf.dirt.commands.stats.ProcessorCommand;
-import cf.dirt.listeners.PlayerListener;
-import cf.dirt.listeners.ServerListener;
+import cf.dirt.instance.commands.MessageCommand;
+import cf.dirt.instance.commands.statistics.MemoryCommand;
+import cf.dirt.instance.commands.statistics.ProcessorCommand;
+import cf.dirt.instance.listeners.PlayerListener;
+import cf.dirt.instance.listeners.ServerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
@@ -12,7 +12,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Objects;
 
 @SuppressWarnings("unused")
 public final class Plugin extends JavaPlugin {
@@ -22,7 +21,7 @@ public final class Plugin extends JavaPlugin {
     }
 
     private String getConfigString(String path) {
-        return translateColors(Objects.requireNonNull(getConfig().getString(path))); // TODO check if objects needed
+        return translateColors(getConfig().getString(path));
     }
 
     @Override
@@ -63,7 +62,7 @@ public final class Plugin extends JavaPlugin {
                     translateColors(getServer().getMotd())
             ), this);
         }
-        catch (NullPointerException exception) {
+        catch (NullPointerException | IllegalArgumentException exception) {
             StringWriter writer = new StringWriter();
             exception.printStackTrace(new PrintWriter(writer));
             getLogger().severe(

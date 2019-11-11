@@ -1,4 +1,4 @@
-package cf.dirt.commands;
+package cf.dirt.instance.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

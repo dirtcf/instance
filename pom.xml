@@ -7,10 +7,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spigot-api.version>1.14.4-R0.1-SNAPSHOT</spigot-api.version>
-        <plugin.version>1.0.0</plugin.version>
+        <plugin.version>1.0.1</plugin.version>
     </properties>
 
-    <groupId>cf.dirt</groupId>
+    <groupId>cf.dirt.instance</groupId>
     <artifactId>instance</artifactId>
     <version>${spigot-api.version}-${plugin.version}</version>
 
@@ -43,6 +43,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
