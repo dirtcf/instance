@@ -1,6 +1,6 @@
 main: cf.dirt.instance.Plugin
 name: Instance
-version: 1.0.1
+version: 1.0.3
 api-version: 1.14
 description: Provides standard tools and configuration for an instance at dirt.cf
 author: kubachrabanski

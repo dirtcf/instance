@@ -1,6 +1,4 @@
-motd: <MOTD>
-totd: <TOTD>
-sotd: <SOTD>
+join_message: <MESSAGE>
 
 manual:
   description: <DESCRIPTION>

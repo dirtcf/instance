@@ -21,25 +21,22 @@ public final class PlayerListener implements Listener {
     private static final int FADE_OUT = 75;
 
     private final Plugin plugin;
+    private final String joinMessage;
 
-    private final String motd;
-    private final String totd;
-    private final String sotd;
-
-    public PlayerListener(Plugin plugin, String motd, String totd, String sotd) {
+    public PlayerListener(Plugin plugin, String joinMessage) {
         this.plugin = plugin;
-
-        this.motd = motd;
-        this.totd = totd;
-        this.sotd = sotd;
+        this.joinMessage = joinMessage;
     }
 
+    /*
+        This temporary code will be replaced by 'announcements' plugin functionality in the future
+     */
     @EventHandler (priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        player.sendTitle(totd, sotd, FADE_IN, STAY, FADE_OUT);
-        player.sendMessage(motd);
+        player.sendTitle("Welcome", event.getPlayer().getDisplayName(), FADE_IN, STAY, FADE_OUT);
+        player.sendMessage(joinMessage);
 
         if (!player.hasPlayedBefore()) {
             player.sendMessage(
@@ -48,7 +45,7 @@ public final class PlayerListener implements Listener {
         }
     }
 
-    @EventHandler (priority = EventPriority.LOWEST)
+    @EventHandler
     public void onPlayerSpawnLocation(PlayerSpawnLocationEvent event) {
         Player player = event.getPlayer();
 
@@ -58,7 +55,7 @@ public final class PlayerListener implements Listener {
         }
     }
 
-    @EventHandler (priority = EventPriority.LOWEST)
+    @EventHandler (priority = EventPriority.HIGHEST)
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         Player player = event.getPlayer();
 

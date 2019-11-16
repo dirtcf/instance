@@ -53,9 +53,7 @@ public final class Plugin extends JavaPlugin {
             PluginManager manager = Bukkit.getPluginManager();
 
             manager.registerEvents(new PlayerListener(this,
-                    getConfigString("motd"),
-                    getConfigString("totd"),
-                    getConfigString("sotd")
+                    getConfigString("join_message")
             ), this);
 
             manager.registerEvents(new ServerListener(
