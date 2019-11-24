@@ -17,15 +17,15 @@ import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 public final class PlayerListener implements Listener {
 
     private static final int FADE_IN = 20;
-    private static final int STAY = 200;
-    private static final int FADE_OUT = 75;
+    private static final int STAY = 75;
+    private static final int FADE_OUT = 50;
 
     private final Plugin plugin;
-    private final String joinMessage;
+    private final World world;
 
-    public PlayerListener(Plugin plugin, String joinMessage) {
+    public PlayerListener(Plugin plugin, World world) {
         this.plugin = plugin;
-        this.joinMessage = joinMessage;
+        this.world = world;
     }
 
     /*
@@ -35,14 +35,11 @@ public final class PlayerListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        player.sendTitle("Welcome", event.getPlayer().getDisplayName(), FADE_IN, STAY, FADE_OUT);
-        player.sendMessage(joinMessage);
-
-        if (!player.hasPlayedBefore()) {
-            player.sendMessage(
-                    ChatColor.GOLD + "use /manual to see instructions"
-            );
-        }
+        player.sendTitle(
+                String.format("%sWelcome", ChatColor.GOLD),
+                player.getDisplayName(),
+                FADE_IN, STAY, FADE_OUT
+        );
     }
 
     @EventHandler
@@ -50,7 +47,6 @@ public final class PlayerListener implements Listener {
         Player player = event.getPlayer();
 
         if (!player.hasPlayedBefore()) {
-            World world = event.getSpawnLocation().getWorld();
             event.setSpawnLocation(world.getSpawnLocation());
         }
     }
@@ -60,7 +56,7 @@ public final class PlayerListener implements Listener {
         Player player = event.getPlayer();
 
         if (player.getBedSpawnLocation() == null) {
-            Location spawnLocation = player.getWorld().getSpawnLocation().add(
+            Location spawnLocation = world.getSpawnLocation().add(
                     new Vector(0.5, 0, 0.5)
             );
             event.setRespawnLocation(spawnLocation);

@@ -1,6 +1,5 @@
 package cf.dirt.instance;
 
-import cf.dirt.instance.commands.MessageCommand;
 import cf.dirt.instance.commands.statistics.MemoryCommand;
 import cf.dirt.instance.commands.statistics.ProcessorCommand;
 import cf.dirt.instance.listeners.PlayerListener;
@@ -36,24 +35,9 @@ public final class Plugin extends JavaPlugin {
                     new ProcessorCommand()
             );
 
-            getCommand("manual").setExecutor(
-                    new MessageCommand(
-                            getConfigString("manual.description"),
-                            getConfigString("manual.message")
-                    )
-            );
-            getCommand("statute").setExecutor(
-                    new MessageCommand(
-                            getConfigString("statute.description"),
-                            getConfigString("statute.message")
-
-                    )
-            );
-
             PluginManager manager = Bukkit.getPluginManager();
-
             manager.registerEvents(new PlayerListener(this,
-                    getConfigString("join_message")
+                    Bukkit.getWorld("world")
             ), this);
 
             manager.registerEvents(new ServerListener(

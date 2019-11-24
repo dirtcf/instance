@@ -1,6 +1,6 @@
 main: cf.dirt.instance.Plugin
 name: Instance
-version: 1.0.3
+version: 1.0.4
 api-version: 1.14
 description: Provides standard tools and configuration for an instance at dirt.cf
 author: kubachrabanski
@@ -14,21 +14,11 @@ commands:
     description: "Shows processor statistics"
     usage: "Usage: /<command>"
     permission: instance.command.processor
-  manual:
-    description: "Shows manual"
-    usage: "Usage: /<command> [page_index]"
-    permission: instance.command.manual
-  statute:
-    description: "Shows statute"
-    usage: "Usage: /<command> [page_index]"
-    permission: instance.command.statute
 
 permissions:
   instance.command.memory:
     default: op
   instance.command.processor:
     default: op
-  instance.command.manual:
-    default: true
-  instance.command.statute:
+  instance.command.message:
     default: true
