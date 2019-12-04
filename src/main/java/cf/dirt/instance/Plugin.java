@@ -36,9 +36,7 @@ public final class Plugin extends JavaPlugin {
             );
 
             PluginManager manager = Bukkit.getPluginManager();
-            manager.registerEvents(new PlayerListener(this,
-                    Bukkit.getWorld("world")
-            ), this);
+            manager.registerEvents(new PlayerListener(), this);
 
             manager.registerEvents(new ServerListener(
                     translateColors(getServer().getMotd())
